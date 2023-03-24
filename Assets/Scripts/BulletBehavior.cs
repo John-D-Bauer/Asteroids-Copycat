@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class BulletBehavior : MonoBehaviour
@@ -8,10 +9,15 @@ public class BulletBehavior : MonoBehaviour
     private float xBound = 10.8f;
     private float yBound = 5.2f;
 
+    private GameObject player;
+    private CircleCollider2D bulletCollider;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.Find("Player");
+        bulletCollider = GetComponent<CircleCollider2D>();
+        bulletCollider.enabled = false;
     }
 
     // Update is called once per frame
@@ -19,6 +25,13 @@ public class BulletBehavior : MonoBehaviour
     {
         MoveForward();
         DestroyOutOfBounds();
+
+        float distanceFromPlayer = Vector2.Distance(player.transform.position, transform.position);
+
+        if (distanceFromPlayer > 0.6)
+        {
+            bulletCollider.enabled = true;
+        }
     }
 
     private void MoveForward()
@@ -37,5 +50,5 @@ public class BulletBehavior : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+
 }

@@ -12,6 +12,8 @@ public class RockController : MonoBehaviour
 
     private SpawnManager spawnManager;
 
+    public ParticleSystem enemyExplosionParticle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,6 +63,8 @@ public class RockController : MonoBehaviour
         if(collision.gameObject.CompareTag("Bullet"))
         {
             Destroy(collision.gameObject);
+            Vector3 explodePos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -1);
+            Instantiate(enemyExplosionParticle, explodePos, Quaternion.identity);
             spawnManager.SpawnSmallerRocks(gameObject);
             Destroy(gameObject);
         }

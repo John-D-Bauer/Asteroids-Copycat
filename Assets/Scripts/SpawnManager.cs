@@ -40,7 +40,7 @@ public class SpawnManager : MonoBehaviour
         }
 
         //If player isn't dead, spawn bullet when space is pressed
-        if(Input.GetKeyDown(KeyCode.Space) && player.GetComponent<SpriteRenderer>().enabled)
+        if (Input.GetKeyDown(KeyCode.Space) && player.GetComponent<SpriteRenderer>().enabled)
         {
             SpawnBullet();
         }

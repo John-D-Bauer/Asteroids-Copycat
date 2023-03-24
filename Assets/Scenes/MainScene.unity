@@ -510,7 +510,7 @@ GameObject:
   - component: {fileID: 1941336511}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -625,9 +625,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 0.5773587}
-      - {x: -0.5, y: -0.28866667}
-      - {x: 0.5, y: -0.28866667}
+    - - {x: -0.0052463603, y: 0.53238994}
+      - {x: -0.45802906, y: -0.27367705}
+      - {x: 0.4580292, y: -0.2661823}
 --- !u!50 &1941336511
 Rigidbody2D:
   serializedVersion: 4

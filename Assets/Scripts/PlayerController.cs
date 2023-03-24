@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     {
         // Get references to objects outside script
         spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
-        playerRb =  GetComponent<Rigidbody2D>();
+        playerRb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -49,6 +49,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             playerRb.AddRelativeForce(Vector2.up * translateSpeed * Time.deltaTime);
+        }
+
+        if(horizontalInput == 0)
+        {
+            playerRb.angularVelocity = 0;
         }
     }
 
